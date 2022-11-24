@@ -24,10 +24,12 @@ func readInput() ([]string, error) {
 	}
 	for _, s := range params[1:] {
 		for _, si := range strings.Split(s, " ") {
-			src = append(src, si)
+			if si != "" {
+				src = append(src, si)
+			}
 		}
 	}
-	fmt.Println(src)
+	// fmt.Println(src)
 	return src, nil
 }
 
