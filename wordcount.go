@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"os"
 )
@@ -18,9 +17,10 @@ func main() {
 // from command line arguments and returns them.
 func readInput() (src []string, err error) {
 	src = os.Args[1:]
-	if len(src) == 0 {
-		return src, errors.New("missing words to count")
-	}
+	/*	if len(src) == 0 {
+			return src, errors.New("missing words to count")
+		}
+	*/
 	return src, nil
 }
 
