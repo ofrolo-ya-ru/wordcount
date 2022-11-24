@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -15,12 +16,18 @@ func main() {
 
 // readInput reads source string
 // from command line arguments and returns them.
-func readInput() (src []string, err error) {
-	src = os.Args[1:]
-	/*	if len(src) == 0 {
-			return src, errors.New("missing words to count")
+func readInput() ([]string, error) {
+	src := make([]string, 0)
+	params := os.Args
+	if len(params) == 1 {
+		return src, nil
+	}
+	for _, s := range params[1:] {
+		for _, si := range strings.Split(s, " ") {
+			src = append(src, si)
 		}
-	*/
+	}
+	fmt.Println(src)
 	return src, nil
 }
 
